@@ -52,7 +52,7 @@ Generative Network for Speech Synthesis.
 This implementation uses code from the following repos: [Keith
 Ito](https://github.com/keithito/tacotron/), [Prem
 Seetharaman](https://github.com/pseeth/pytorch-stft), 
-[Check Deng](https:https://github.com/KinglittleQ/GST-Tacotron),
+[Chengqi Deng](https://github.com/KinglittleQ/GST-Tacotron),
 [Patrice Guyot](https://github.com/patriceguyot/Yin), as described in our code.
 
 [ignored]: https://github.com/nvidia/mellotron/blob/github/hpaams.py#L22
