@@ -2,7 +2,6 @@ import random
 import os
 import re
 import numpy as np
-import vamp
 import torch
 import torch.utils.data
 import librosa
