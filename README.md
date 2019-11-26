@@ -16,7 +16,7 @@ Visit our [website] for audio samples.
 1. NVIDIA GPU + CUDA cuDNN
 
 ## Setup
-1. Clone this repo: `git clone https://github.com/NVIDIA/mellotron/mellotron.git`
+1. Clone this repo: `git clone https://github.com/NVIDIA/mellotron.git`
 2. CD into this repo: `cd mellotron`
 3. Initialize submodule: `git submodule init; git submodule update`
 4. Install [PyTorch]
