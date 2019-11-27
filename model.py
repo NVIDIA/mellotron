@@ -9,6 +9,18 @@ from utils import to_gpu, get_mask_from_lengths
 from modules import GST
 
 drop_rate = 0.5
+
+def load_model(hparams):
+    model = Tacotron2(hparams).cuda()
+    if hparams.fp16_run:
+        model.decoder.attention_layer.score_mask_value = finfo('float16').min
+
+    if hparams.distributed_run:
+        model = apply_gradient_allreduce(model)
+
+    return model
+
+
 class LocationLayer(nn.Module):
     def __init__(self, attention_n_filters, attention_kernel_size,
                  attention_dim):
