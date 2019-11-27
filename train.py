@@ -10,7 +10,7 @@ import torch.distributed as dist
 from torch.utils.data.distributed import DistributedSampler
 from torch.utils.data import DataLoader
 
-from model import Tacotron2
+from model import load_model
 from data_utils import TextMelLoader, TextMelCollate
 from loss_function import Tacotron2Loss
 from logger import Tacotron2Logger
@@ -69,17 +69,6 @@ def prepare_directories_and_logger(output_directory, log_directory, rank):
     else:
         logger = None
     return logger
-
-
-def load_model(hparams):
-    model = Tacotron2(hparams).cuda()
-    if hparams.fp16_run:
-        model.decoder.attention_layer.score_mask_value = finfo('float16').min
-
-    if hparams.distributed_run:
-        model = apply_gradient_allreduce(model)
-
-    return model
 
 
 def warm_start_model(checkpoint_path, model, ignore_layers):
