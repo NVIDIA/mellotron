@@ -368,13 +368,6 @@ def events2eventsarpabet(event):
         else:
             k += 1
 
-    if len(event) == 1:
-        if len(word_arpabet) > 1:
-            raise Exception("More characters in {} than in {}".format(
-                word, word_arpabet))
-        token_a, freq_a, start_time_a, end_time_a = event[i]
-        new_events.append([word_arpabet[0], freq_a, start_time_a, end_time_a])
-
     # add extensions and pauses at end of words
     while i < len(event):
         token_a, freq_a, start_time_a, end_time_a = event[i]
