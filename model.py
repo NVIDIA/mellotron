@@ -1,5 +1,6 @@
 from math import sqrt
 import numpy as np
+from numpy import finfo
 import torch
 from torch.autograd import Variable
 from torch import nn
@@ -14,9 +15,6 @@ def load_model(hparams):
     model = Tacotron2(hparams).cuda()
     if hparams.fp16_run:
         model.decoder.attention_layer.score_mask_value = finfo('float16').min
-
-    if hparams.distributed_run:
-        model = apply_gradient_allreduce(model)
 
     return model
 
