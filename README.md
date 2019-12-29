@@ -55,7 +55,7 @@ Seetharaman](https://github.com/pseeth/pytorch-stft),
 [Chengqi Deng](https://github.com/KinglittleQ/GST-Tacotron),
 [Patrice Guyot](https://github.com/patriceguyot/Yin), as described in our code.
 
-[ignored]: https://github.com/nvidia/mellotron/blob/github/hpaams.py#L22
+[ignored]: https://github.com/NVIDIA/mellotron/blob/master/hparams.py#L22
 [paper]: https://arxiv.org/abs/1910.11997
 [WaveGlow]: https://drive.google.com/file/d/1WsibBTsuRg_SF2Z6L6NFRTT-NjEy1oTx/view?usp=sharing
 [Mellotron]: https://drive.google.com/open?id=1ZesPPyRRKloltRIuRnGZ2LIUEuMSVjkI
