@@ -92,7 +92,7 @@ class TextMelLoader(torch.utils.data.Dataset):
 
     def get_text(self, text):
         text_norm = torch.IntTensor(
-            text_to_sequence(text, self.text_cleaners, self.cmudict))
+            text_to_sequence(text, self.text_cleaners, self.cmudict, self.p_arpabet))
         return text_norm
 
     def __getitem__(self, index):

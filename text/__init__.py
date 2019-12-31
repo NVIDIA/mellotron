@@ -1,5 +1,5 @@
 """ from https://github.com/keithito/tacotron """
-import re
+import re, random
 from text import cleaners
 from text.symbols import symbols
 
@@ -20,7 +20,7 @@ def get_arpabet(word, dictionary):
     return word
 
 
-def text_to_sequence(text, cleaner_names, dictionary=None):
+def text_to_sequence(text, cleaner_names, dictionary=None, p_arpabet=0.0):
   '''Converts a string of text to a sequence of IDs corresponding to the symbols in the text.
 
     The text can optionally have ARPAbet sequences enclosed in curly braces embedded
@@ -43,7 +43,7 @@ def text_to_sequence(text, cleaner_names, dictionary=None):
     if not m:
       clean_text = _clean_text(text, cleaner_names)
       if cmudict is not None:
-        clean_text = [get_arpabet(w, dictionary) for w in clean_text.split(" ")]
+        clean_text = [get_arpabet(w, dictionary) if random.random() < p_arpabet else w for w in clean_text.split(" ")]
         for i in range(len(clean_text)):
             t = clean_text[i]
             if t.startswith("{"):
