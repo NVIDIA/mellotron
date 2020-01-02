@@ -22,7 +22,7 @@ PHONEME2GRAPHEME = {
     'IH': ['i', 'e', 'y'],
     'IX': ['e', 'i'],
     'IY': ['ea', 'ey', 'y', 'i'],
-    'OW': ['oa'],
+    'OW': ['oa', 'o'],
     'OY': ['oy'],
     'UH': ['oo'],
     'UW': ['oo', 'u', 'o'],
