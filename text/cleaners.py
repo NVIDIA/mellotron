@@ -19,7 +19,7 @@ from .numbers import normalize_numbers
 
 # Regular expression matching whitespace punctuation, dash:
 _whitespace_re = re.compile(r'\s+')
-_punctuation_re = re.compile(r'[!@#$%^&*+-?/,.;]')
+_punctuation_re = re.compile(r'[()!@#$%^&*+?/,.;\"\'\[\]]')
 _dash_re = re.compile(r'[-]')
 
 # List of (regular expression, replacement) pairs for abbreviations:
