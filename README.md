@@ -33,7 +33,7 @@ Visit our [website] for audio samples.
 Training using a pre-trained model can lead to faster convergence  
 By default, the speaker embedding layer is [ignored]
 
-1. Download our published [Mellotron] model trained on LibriTTS
+1. Download our published Mellotron model trained on [LibriTTS] or [LJS]
 2. `python train.py --output_directory=outdir --log_directory=logdir -c models/mellotron_libritts.pt --warm_start`
 
 ## Multi-GPU (distributed) and Automatic Mixed Precision Training
@@ -58,7 +58,8 @@ Seetharaman](https://github.com/pseeth/pytorch-stft),
 [ignored]: https://github.com/NVIDIA/mellotron/blob/master/hparams.py#L22
 [paper]: https://arxiv.org/abs/1910.11997
 [WaveGlow]: https://drive.google.com/file/d/1WsibBTsuRg_SF2Z6L6NFRTT-NjEy1oTx/view?usp=sharing
-[Mellotron]: https://drive.google.com/open?id=1ZesPPyRRKloltRIuRnGZ2LIUEuMSVjkI
+[LibriTTS]: https://drive.google.com/open?id=1ZesPPyRRKloltRIuRnGZ2LIUEuMSVjkI
+[LJS]: https://drive.google.com/open?id=1UwDARlUl8JvB2xSuyMFHFsIWELVpgQD4
 [pytorch]: https://github.com/pytorch/pytorch#installation
 [website]: https://nv-adlr.github.io/Mellotron
 [Apex]: https://github.com/nvidia/apex
