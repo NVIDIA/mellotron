@@ -42,7 +42,7 @@ By default, the speaker embedding layer is [ignored]
 ## Inference demo
 1. `jupyter notebook --ip=127.0.0.1 --port=31337`
 2. Load inference.ipynb 
-3. (optional) Download our published [WaveGlow](https://drive.google.com/open?id=1Rm5rV5XaWWiUbIpg5385l5sh68z2bVOE) model
+3. (optional) Download our published [WaveGlow](https://drive.google.com/open?id=1okuUstGoBe_qZ4qUEF8CcwEugHP7GM_b) model
 
 ## Related repos
 [WaveGlow](https://github.com/NVIDIA/WaveGlow) Faster than real time Flow-based
