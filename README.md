@@ -57,7 +57,7 @@ Seetharaman](https://github.com/pseeth/pytorch-stft),
 
 [ignored]: https://github.com/NVIDIA/mellotron/blob/master/hparams.py#L22
 [paper]: https://arxiv.org/abs/1910.11997
-[WaveGlow]: https://drive.google.com/file/d/1WsibBTsuRg_SF2Z6L6NFRTT-NjEy1oTx/view?usp=sharing
+[WaveGlow]: https://drive.google.com/open?id=1rpK8CzAAirq9sWZhe9nlfvxMF1dRgFbF
 [LibriTTS]: https://drive.google.com/open?id=1ZesPPyRRKloltRIuRnGZ2LIUEuMSVjkI
 [LJS]: https://drive.google.com/open?id=1UwDARlUl8JvB2xSuyMFHFsIWELVpgQD4
 [pytorch]: https://github.com/pytorch/pytorch#installation
