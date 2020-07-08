@@ -601,7 +601,7 @@ class Tacotron2(nn.Module):
         embedded_inputs = self.embedding(inputs).transpose(1, 2)
         embedded_text = self.encoder(embedded_inputs, input_lengths)
         embedded_speakers = self.speaker_embedding(speaker_ids)[:, None]
-        embedded_gst = self.gst(targets)
+        embedded_gst = self.gst(targets, output_lengths)
         embedded_gst = embedded_gst.repeat(1, embedded_text.size(1), 1)
         embedded_speakers = embedded_speakers.repeat(1, embedded_text.size(1), 1)
 
