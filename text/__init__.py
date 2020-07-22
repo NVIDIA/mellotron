@@ -3,6 +3,7 @@ import re
 import random
 from text import cleaners
 from text.symbols import symbols
+from nltk.tokenize import word_tokenize
 
 
 # Mappings from symbol to numeric ID and vice versa:
@@ -46,7 +47,7 @@ def text_to_sequence(text, cleaner_names, dictionary=None, p_arpabet=1.0):
       if cmudict is not None:
         clean_text = [get_arpabet(w, dictionary) 
                       if random.random() < p_arpabet else w 
-                      for w in clean_text.split(" ")]
+                      for w in word_tokenize(clean_text)]
 
         for i in range(len(clean_text)):
             t = clean_text[i]
