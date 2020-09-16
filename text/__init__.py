@@ -38,7 +38,6 @@ def text_to_sequence(text, cleaner_names, dictionary=None, p_arpabet=1.0):
   '''
   sequence = []
 
-  space = _symbols_to_sequence(' ')
   # Check for curly braces and treat their contents as ARPAbet:
   while len(text):
     m = _curly_re.match(text)
@@ -62,14 +61,10 @@ def text_to_sequence(text, cleaner_names, dictionary=None, p_arpabet=1.0):
         sequence += _symbols_to_sequence(clean_text)
       break
 
-    word = _words_re.findall(_clean_text(m.group(1), cleaner_names))
-    if len(word):
-        sequence += _symbols_to_sequence(word[0][1])
+    sequence += text_to_sequence(m.group(1), cleaner_names, dictionary, p_arpabet)
     sequence += _arpabet_to_sequence(m.group(2))
     text = m.group(3)
 
-  # remove trailing space
-  sequence = sequence[:-1] if sequence[-1] == space[0] else sequence
   return sequence
 
 
