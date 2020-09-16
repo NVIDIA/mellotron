@@ -11,6 +11,7 @@ _id_to_symbol = {i: s for i, s in enumerate(symbols)}
 
 # Regular expression matching text enclosed in curly braces:
 _curly_re = re.compile(r'(.*?)\{(.+?)\}(.*)')
+_words_re = re.compile(r"([a-zA-ZÀ-ž]+['][a-zA-ZÀ-ž]{1,2}|[a-zA-ZÀ-ž]+)|([{][^}]+[}]|[^a-zA-ZÀ-ž{}]+)")
 
 
 def get_arpabet(word, dictionary):
@@ -44,9 +45,11 @@ def text_to_sequence(text, cleaner_names, dictionary=None, p_arpabet=1.0):
     if not m:
       clean_text = _clean_text(text, cleaner_names)
       if cmudict is not None:
-        clean_text = [get_arpabet(w, dictionary) 
-                      if random.random() < p_arpabet else w 
-                      for w in clean_text.split(" ")]
+        words = _words_re.findall(text)
+        clean_text = [
+          get_arpabet(word[0], dictionary)
+          if ((word[0] != '') and random.random() < p_arpabet) else word[1]
+          for word in words]
 
         for i in range(len(clean_text)):
             t = clean_text[i]
@@ -54,13 +57,14 @@ def text_to_sequence(text, cleaner_names, dictionary=None, p_arpabet=1.0):
               sequence += _arpabet_to_sequence(t[1:-1])
             else:
               sequence +=  _symbols_to_sequence(t)
-            sequence += space
+            #sequence += space
       else:
         sequence += _symbols_to_sequence(clean_text)
       break
 
-    clean_text = _clean_text(text, cleaner_names)
-    sequence += _symbols_to_sequence(_clean_text(m.group(1), cleaner_names))
+    word = _words_re.findall(_clean_text(m.group(1), cleaner_names))
+    if len(word):
+        sequence += _symbols_to_sequence(word[0][1])
     sequence += _arpabet_to_sequence(m.group(2))
     text = m.group(3)
 
