@@ -60,10 +60,11 @@ def text_to_sequence(text, cleaner_names, dictionary=None, p_arpabet=1.0):
       else:
         sequence += _symbols_to_sequence(clean_text)
       break
-
-    sequence += text_to_sequence(m.group(1), cleaner_names, dictionary, p_arpabet)
-    sequence += _arpabet_to_sequence(m.group(2))
-    text = m.group(3)
+    
+    else:
+      sequence += text_to_sequence(m.group(1), cleaner_names, dictionary, p_arpabet)
+      sequence += _arpabet_to_sequence(m.group(2))
+      text = m.group(3)
 
   return sequence
 
