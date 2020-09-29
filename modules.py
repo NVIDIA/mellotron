@@ -69,8 +69,8 @@ class ReferenceEncoder(nn.Module):
         out = out.contiguous().view(N, T, -1)  # [N, Ty//2^K, 128*n_mels//2^K]
 
         if input_lengths is not None:
-            input_lengths = (input_lengths.cpu().numpy() / 2 ** len(self.convs))
-            input_lengths = input_lengths.round().astype(int)
+            input_lengths = torch.ceil(input_lengths.float() / 2 ** len(self.convs))
+            input_lengths = input_lengths.cpu().numpy().astype(int)            
             out = nn.utils.rnn.pack_padded_sequence(
                         out, input_lengths, batch_first=True, enforce_sorted=False)
 
