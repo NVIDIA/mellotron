@@ -58,6 +58,7 @@ class ReferenceEncoder(nn.Module):
         self.ref_enc_gru_size = hp.ref_enc_gru_size
 
     def forward(self, inputs, input_lengths=None):
+        assert inputs.size(-1) % self.n_mel_channels == 0
         out = inputs.view(inputs.size(0), 1, -1, self.n_mel_channels)
         for conv, bn in zip(self.convs, self.bns):
             out = conv(out)
