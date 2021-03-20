@@ -41,7 +41,8 @@ class TextMelLoader(torch.utils.data.Dataset):
 
         self.speaker_ids = speaker_ids
         if speaker_ids is None:
-            self.speaker_ids = self.create_speaker_lookup_table(self.audiopaths_and_text)
+            self.speaker_ids = self.create_speaker_lookup_table(
+                self.audiopaths_and_text)
 
         random.seed(1234)
         random.shuffle(self.audiopaths_and_text)
