@@ -29,6 +29,7 @@ class TextMelLoader(torch.utils.data.Dataset):
             hparams.mel_fmax)
         self.sampling_rate = hparams.sampling_rate
         self.filter_length = hparams.filter_length
+        self.win_length = hparams.win_length
         self.hop_length = hparams.hop_length
         self.f0_min = hparams.f0_min
         self.f0_max = hparams.f0_max
@@ -84,7 +85,7 @@ class TextMelLoader(torch.utils.data.Dataset):
         melspec = torch.squeeze(melspec, 0)
 
         f0 = self.get_f0(audio.cpu().numpy(), self.sampling_rate,
-                         self.filter_length, self.hop_length, self.f0_min,
+                         self.win_length, self.hop_length, self.f0_min,
                          self.f0_max, self.harm_thresh)
         f0 = torch.from_numpy(f0)[None]
         f0 = f0[:, :melspec.size(1)]
