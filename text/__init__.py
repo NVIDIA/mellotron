@@ -72,8 +72,8 @@ def sequence_to_text(sequence):
   '''Converts a sequence of IDs back to a string'''
   result = ''
   for symbol_id in sequence:
-    if symbol_id in _id_to_symbol:
-      s = _id_to_symbol[symbol_id]
+    if symbol_id.item() in _id_to_symbol:
+      s = _id_to_symbol[symbol_id.item()]
       # Enclose ARPAbet back in curly braces:
       if len(s) > 1 and s[0] == '@':
         s = '{%s}' % s[1:]
